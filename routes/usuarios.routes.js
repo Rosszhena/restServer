@@ -4,18 +4,15 @@ const {   usuariosGet,
           usuariosPut, 
           usuariosPost, 
           usuariosDelete, 
-          usuariosPatch } =require('../controllers/usuarios.controllers');
+          } =require('../controllers/usuarios.controllers');
 
 const router = Router();
 
-  router.get('/', usuariosGet );
+  router
+  .get('/', usuariosGet )
+  .put('/:id', usuariosPut )
+  .post('/:id', usuariosPost )
+  .delete('/:id', usuariosDelete );
 
-  router.put('/:id', usuariosPut );
-
-  router.post('/', usuariosPost );
-
-  router.delete('/', usuariosDelete );
-
-  router.patch('/', usuariosPatch );
 
   module.exports = router;

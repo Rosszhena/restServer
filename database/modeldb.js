@@ -6,7 +6,8 @@ const getAllUsuarios = () => {
 };
 
 const createNewUser = ( newUser ) => {
-    const isAlreadyAdded = DB.users.findIndex( (user ) => user.name === newUser.name);
+    const isAlreadyAdded = 
+        DB.users.findIndex(( user ) => user.name === newUser.name) > -1;
 
     if(isAlreadyAdded) {
         return;
@@ -14,6 +15,7 @@ const createNewUser = ( newUser ) => {
 
 DB.users.push(newUser);
 saveToDatabase(DB);
+return newUser;
 };
 
 

@@ -1,15 +1,28 @@
-const { v4: uuid } =require('uuid');
-const Modeldb = require ('../database/modeldb');
+const { v4: uuid } = require('uuid');
+const User = require ('../database/modeldb');
 
 const usuariosGet = () => {
-    const allUsuarios = Modeldb.getAllUsuarios();
+    const allUsuarios = User.getAllUsuarios();
     return allUsuarios;
 };
 
 
-const usuariosPost = () => {
-    return;
+
+const usuariosPost = (newUser) => {
+    const userToInsert = {
+        ...newUser,
+        id: uuid()
+    };
+
+    console.log('userTOINSERT', userToInsert);
+   
+    const createUser = User.createNewUser(userToInsert);
+    return createUser;
 };
+
+
+
+
 const usuariosPut = () => {
     return;
 };
@@ -22,7 +35,7 @@ const usuariosPatch = () => {
 
 module.exports = {
     usuariosGet, 
+    usuariosPost,
     usuariosPut,
-    usuariosDelete,
-    usuariosPatch
+    usuariosDelete
 }

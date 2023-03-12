@@ -11,7 +11,7 @@ const router = Router();
   router
   .get('/', usuariosGet )
   .put('/:id', usuariosPut )
-  .post('/:id', usuariosPost )
+  .post('/', usuariosPost )
   .delete('/:id', usuariosDelete );
 
 

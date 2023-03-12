@@ -10,8 +10,7 @@ const usuariosPost = (req, res) => {
   const { body } = req;
   if(
     !body.name ||
-    !body.edad ||
-    !body.id
+    !body.edad 
   )
   {
     return;
@@ -19,11 +18,12 @@ const usuariosPost = (req, res) => {
 
   const newUser = {
     name: body.name,
-    edad: body.edad,
-    id:body.id
-  }
+    edad: body.edad
+  };
+  console.log('user', newUser);
+
   const createUsers = usersServices.usuariosPost(newUser);  
-  res.status(201).send({status: 'OK', data: createUsers });
+  res.status(201).send({ status: 'OK', data: createUsers });
 }
 
 const usuariosPut = (req, res) => {

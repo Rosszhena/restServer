@@ -1,10 +1,6 @@
 {
   "users": [
-    {
-      "name": "username1",
-      "id": "7000f",
-      "edad": "20"
-    },
+    null,
     {
       "name": "username2",
       "id": "70022",
@@ -17,8 +13,8 @@
     },
     {
       "name": "username4",
-      "edad": "18",
-      "id": "661690af-dced-48e2-adb0-78018f92ddfd"
+      "edad": "20",
+      "id": "b8f2d5a3-6f98-4945-8203-2124232a1814"
     }
   ]
 }

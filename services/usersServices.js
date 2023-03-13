@@ -22,10 +22,12 @@ const usuariosPost = (newUser) => {
 
 
 
-
-const usuariosPut = () => {
-    return;
+const usuariosPut = (id, changes ) => {
+    const usuarioPut = User.updateUser(id, changes );
+    return usuarioPut;
 };
+
+
 const usuariosDelete = () => {
     return;
 };

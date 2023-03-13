@@ -27,8 +27,20 @@ const usuariosPost = (req, res) => {
 }
 
 const usuariosPut = (req, res) => {
-  const updateUsers = usersServices.usuariosPut(req.params.id);
-  res.send(`PUT API - controlador ${req.params.id}`);
+
+  const { 
+    body,
+    params: { id },
+   } = req;
+
+   if (!id) {
+     return;
+   }
+  
+
+  const updateUser = usersServices.usuariosPut( id, body );
+  res.send({ status: 'Ok', data: updateUser });
+
 }
 
 const usuariosDelete = (req, res) => {

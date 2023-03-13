@@ -18,5 +18,32 @@ saveToDatabase(DB);
 return newUser;
 };
 
+const updateUser = ( userId, changes ) => {
 
-module.exports = { getAllUsuarios, createNewUser };
+    const isAlreadyAdded = 
+    DB.users.findIndex((user) => user.name === changes.name) > -1;
+console.log('USESRID', userId);
+    if(isAlreadyAdded) {
+        return;
+}
+    const indexForUpdate = DB.users.findIndex(
+        (user) => (user.id = userId)
+    );
+
+    if(indexForUpdate === -1 ){
+        return;
+    }
+
+    const actualizaUsuario = {
+        ...DB.users[indexForUpdate],
+        ...changes
+    };
+
+    DB.users[indexForUpdate] = updateUser;
+    saveToDatabase(DB);
+    return actualizaUsuario;
+    
+};
+
+
+module.exports = { getAllUsuarios, createNewUser, updateUser  };

@@ -20,20 +20,16 @@ const usuariosPost = (newUser) => {
     return createUser;
 };
 
-
-
 const usuariosPut = (id, changes ) => {
     const usuarioPut = User.updateUser(id, changes );
     return usuarioPut;
 };
 
 
-const usuariosDelete = () => {
-    return;
+const usuariosDelete = (id) => {
+    User.deleteUser(id);
 };
-const usuariosPatch = () => {
-    return;
-};
+
 
 module.exports = {
     usuariosGet, 

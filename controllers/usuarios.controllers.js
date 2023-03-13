@@ -37,16 +37,23 @@ const usuariosPut = (req, res) => {
      return;
    }
   
-
   const updateUser = usersServices.usuariosPut( id, body );
   res.send({ status: 'Ok', data: updateUser });
 
 }
 
 const usuariosDelete = (req, res) => {
-  const deleteUsers = usersServices.usuariosDelete(req.params.id);
-  res.send(`DELETE API - controlador ${req.params.id}`);
-  }
+    const {
+      params: { id },
+    } = req;
+
+    if( !id ) {
+      return;
+    }
+
+    usersServices.usuariosDelete(id);
+    res.status(204).send({ status: 'OK' });
+  };
 
 
 
@@ -54,6 +61,5 @@ module.exports = {
     usuariosGet,
     usuariosPost,
     usuariosPut,
-    usuariosDelete,
-   
+    usuariosDelete
 }

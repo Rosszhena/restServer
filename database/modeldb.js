@@ -11,24 +11,22 @@ const createNewUser = ( newUser ) => {
 
     if(isAlreadyAdded) {
         return;
-}
+    }
 
-DB.users.push(newUser);
-saveToDatabase(DB);
-return newUser;
+    DB.users.push(newUser);
+    saveToDatabase(DB);
+    return newUser;
 };
 
 const updateUser = ( userId, changes ) => {
 
     const isAlreadyAdded = 
     DB.users.findIndex((user) => user.name === changes.name) > -1;
-console.log('USESRID', userId);
     if(isAlreadyAdded) {
         return;
-}
+    }
     const indexForUpdate = DB.users.findIndex(
-        (user) => (user.id === userId)
-    );
+        (user) => (user.id === userId));
 
     if(indexForUpdate === -1 ){
         return;
@@ -45,5 +43,22 @@ console.log('USESRID', userId);
     
 };
 
+const deleteUser = (id) => {
+    const indexForDeleted = DB.users.findIndex (
+      (user)  => user.id === id  
+    );
 
-module.exports = { getAllUsuarios, createNewUser, updateUser  };
+    if (indexForDeleted === -1) {
+        return;
+    }
+
+    DB.users.splice(indexForDeleted, 1);
+    saveToDatabase(DB);
+};
+
+module.exports = { 
+    getAllUsuarios,
+    createNewUser, 
+    updateUser,
+    deleteUser
+};

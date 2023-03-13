@@ -27,7 +27,7 @@ console.log('USESRID', userId);
         return;
 }
     const indexForUpdate = DB.users.findIndex(
-        (user) => (user.id = userId)
+        (user) => (user.id === userId)
     );
 
     if(indexForUpdate === -1 ){
@@ -39,7 +39,7 @@ console.log('USESRID', userId);
         ...changes
     };
 
-    DB.users[indexForUpdate] = updateUser;
+    DB.users[indexForUpdate] = actualizaUsuario;
     saveToDatabase(DB);
     return actualizaUsuario;
     
